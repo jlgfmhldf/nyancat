@@ -12,6 +12,7 @@ body {
   display: flex;
 }
 .main__image {
+  flex-shrink: 0;
   width: 400px;
   height: 136px;
   margin: auto 0;
