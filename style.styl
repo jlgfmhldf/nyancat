@@ -1,0 +1,124 @@
+$colors = {
+	'r': #ff130e,
+	'o': black,
+	'n': #f7ce9b,
+	'z': #ffa711,
+	'e': #ffa3ff,
+	'E': #ff4eaf,
+	'u': #ffff06,
+	't': transparent,
+	'g': #a8a8a8,
+	'l': #3fff0d,
+	'b': #13acff,
+	'w': #fff,
+	'v': #7939b5,
+}
+
+$size = 8px
+
+p($color, x = 0, y = 0) //pixel
+	return unit(x * $size, 'px') unit(y * $size, 'px') 0 $color
+
+pixelize(matrix)
+	res = null
+	for val, y in matrix
+		for color, x in val
+			color = $colors[color]
+			if(color != 'transparent')
+				pixel = p(color, x, y)
+				push(res, join(' ', pixel))
+
+	shift(res) // because res[0] = null :(
+	return unquote(join(',', res))
+
+$nyancat = t t t r r r r r r t t t t t t t o o o o o o o o o o o o o o,
+					 t r r r r r r r r r r r r r r o n n n n n n n n n n n n n n o,
+					 t r r r z z z z z r r r r r o n n e e e e E e e E e e e n n n o,
+					 t z z z z z z z z z z z z z o n e e E e e e e o o e e e e e n o,
+					 t z z z u u u u o o o o z z o n e e e e e e o g g o e e E e n o t o o,
+					 t u u u u u u o g g g o o o o n e e e e e e o g g g o e e e n o o g g o,
+					 t u u u l l l o o g g g g g o n e e e E e e o g g g g o o o o g g g g o,
+					 t l l l l l l l l o o o o g o n e e e e e e o g g g g g g g g g g g g o,
+					 t l l l b b b b b b b b o o o n e e e e E o g g g w o g g g g g w o g g o,
+					 t b b b b b b b b b b b b b o n e E e e e o g g g o o g g g o g o o g g o,
+					 t b b b v v v v v b b b b b o n e e e E e o g e e g g g g g g g g g e e o,
+					 t v v v v v v v v v v v v o o n n e E e e o g e e g o g g o g g o g e e o,
+					 t v v v t t t t t v o o o o o n n n e e e e o g g g o o o o o o o g g o,
+					 t t t t t t t t t o g g g o o n n n n n n n o g g g g g g g g g g g o,
+					 t t t t t t t t t o g g o t o o o o o o o o o o o o o o o o o o o o,
+					 t t t t t t t t t o o o t t t o g g o t t t o g g o t o g g o,
+					 t t t t t t t t t t t t t t t t o o o t t t t o o o t t o o o
+
+$nyancat1 = t t t r r r r r r t t t t t t t o o o o o o o o o o o o o o,
+				t r r r r r r r r r r r r r r o n n n n n n n n n n n n n n o,
+				t r r r z z z o o o r r r r o n n e e e e E e e E e e e n n n o,
+				t z z z z z z o g g o z z z o n e e E e e e e o o e e e e e n o,
+				t z z z u u u o g g g o z z o n e e e e e e o g g o e e E e n o t o o,
+				t u u u u u u l o g g g o o o n e e e e e e o g g g o e e e n o o g g o,
+				t u u u l l l l l o g g g g o n e e e E e e o g g g g o o o o g g g g o,
+				t l l l l l l l l l o g g g o n e e e e e e o g g g g g g g g g g g g o,
+				t l l l b b b b b b b o o o o n e e e e E o g g g w o g g g g g w o g g o,
+				t b b b b b b b b b b b b b o n e E e e e o g g g o o g g g o g o o g g o,
+				t b b b v v v v v b b b b b o n e e e E e o g e e g g g g g g g g g e e o,
+				t v v v v v v v v v v v v o o n n e E e e o g e e g o g g o g g o g e e o,
+				t v v v t t t t t v o o o o o n n n e e e e o g g g o o o o o o o g g o,
+				t t t t t t t t t o g g g o o n n n n n n n o g g g g g g g g g g g o,
+				t t t t t t t t t o g g o t o o o o o o o o o o o o o o o o o o o o,
+				t t t t t t t t t o o o t t t o g g o t t t o g g o t o g g o,
+				t t t t t t t t t t t t t t t t o o o t t t t o o o t t o o o
+
+$nyancat2 = t t t r r r r r r t t t t t t t o o o o o o o o o o o o o o,
+				t r r r r r r r r r r r r r r o n n n n n n n n n n n n n n o,
+				t r r r z z z z z r r r r r o n n e e e e E e e E e e e n n n o,
+				t z z z z z z z z o o z z z o n e e E e e e e e o o e e e e n o,
+				t z z z u u u u o g g o z z o n e e e e e e e o g g o e E e n o t t o o,
+				t u u u u u u l o g g g o o o n e e e e e e e o g g g o e e n o t o g g o,
+				t u u u l l l l l o g g g g o n e e e E e e e o g g g g o o o o g g g g o,
+				t l l l l l l l l l o o g g o n e e e e e e e o g g g g g g g g g g g g o,
+				t l l l b b b b b b b b o o o n e e e e E e o g g g w o g g g g g w o g g o,
+				t b b b b b b b b b b b b b o n e E e e e e o g g g o o g g g o g o o g g o,
+				t b b b v v v v v b b b b b o n e e e E e e o g e e g g g g g g g g g e e o,
+				t v v v v v v v v v v v v o o n n e E e e e o g e e g o g g o g g o g e e o,
+				t v v v t t t t t v v o o o o n n n e e e e e o g g g o o o o o o o g g o,
+				t t t t t t t t t t t o g g o n n n n n n n n o g g g g g g g g g g g o,
+				t t t t t t t t t t t o g g o o o o o o o o o o o o o o o o o o o o o,
+				t t t t t t t t t t t o o o t o g g o t t t o g g o t o g g o,
+				t t t t t t t t t t t t t t t t o o o t t t t o o o t t o o o
+
+body
+	background #114475
+
+	img
+		position absolute
+		top 250px
+
+.nyancat
+	width $size
+	height $size
+	animation animate 1s steps(1) infinite
+
+.main
+	width 100%
+	height 100vh
+	display flex
+
+	&__image
+		width 37 * $size
+		height 17 * $size
+		margin auto 0
+		transform translateX(- $size)
+
+
+@keyframes animate {
+	0% {
+		box-shadow pixelize($nyancat1)
+	}
+
+	50% {
+		box-shadow pixelize($nyancat2)
+	}
+
+	100% {
+		box-shadow pixelize($nyancat)
+	}
+}
