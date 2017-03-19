@@ -156,7 +156,6 @@ body
 	@media screen and (max-width: 50 * $defaultSize)
 		width $mobileSize
 		height $mobileSize
-		// transform translateX(-25%)
 		animation animateMobile .4s steps(1) infinite
 
 .main
@@ -170,3 +169,8 @@ body
 		height 17 * $defaultSize
 		margin auto 0
 		transform translateX(- $defaultSize)
+		
+		@media screen and (max-width: 50 * $defaultSize)
+			width 50 * $mobileSize
+			height 17 * $mobileSize
+			transform translateX(- $mobileSize)
