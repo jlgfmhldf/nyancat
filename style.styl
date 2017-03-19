@@ -14,18 +14,19 @@ $colors = {
 	'v': #7939b5,
 }
 
-$size = 8px
+$defaultSize = 8px
+$mobileSize = 6px
 
-p($color, x = 0, y = 0) //pixel
-	return unit(x * $size, 'px') unit(y * $size, 'px') 0 $color
+p($color, x = 0, y = 0, size = $defaultSize) //pixel
+	return unit(x * size, 'px') unit(y * size, 'px') 0 $color
 
-pixelize(matrix)
+pixelize(matrix, size = $defaultSize)
 	res = null
 	for val, y in matrix
 		for color, x in val
 			color = $colors[color]
 			if(color != 'transparent')
-				pixel = p(color, x, y)
+				pixel = p(color, x, y, size)
 				push(res, join(' ', pixel))
 
 	shift(res) // because res[0] = null :(
@@ -108,28 +109,55 @@ $nyancat4 = t t t t t t t t t t t t t t t t t t t t t t t t t t t t t o o o o o 
 		box-shadow pixelize($nyancat1)
 		transform translateY(5px)
 	}
-
+	
 	33% {
 		box-shadow pixelize($nyancat2)
 	}
-
+	
 	66% {
 		box-shadow pixelize($nyancat3)
 		transform translateY(0)
 	}
-		
+	
 	99% {
 		box-shadow pixelize($nyancat4)
 	}
 }
 
+@keyframes animateMobile {
+	0% {
+		box-shadow pixelize($nyancat1, $mobileSize)
+		transform translateY(5px)
+	}
+
+	33% {
+		box-shadow pixelize($nyancat2, $mobileSize)
+	}
+
+	66% {
+		box-shadow pixelize($nyancat3, $mobileSize)
+		transform translateY(0)
+	}
+
+	99% {
+		box-shadow pixelize($nyancat4, $mobileSize)
+	}
+}
+
+
 body
 	background #114475
 
 .nyancat
-	width $size
-	height $size
+	width $defaultSize
+	height $defaultSize
 	animation animate .4s steps(1) infinite
+	
+	@media screen and (max-width: 50 * $defaultSize)
+		width $mobileSize
+		height $mobileSize
+		// transform translateX(-25%)
+		animation animateMobile .4s steps(1) infinite
 
 .main
 	width 100%
@@ -138,10 +166,7 @@ body
 	
 	&__image
 		flex-shrink 0
-		width 50 * $size
-		height 17 * $size
+		width 50 * $defaultSize
+		height 17 * $defaultSize
 		margin auto 0
-		transform translateX(- $size)
-		
-		//@media screen and (max-width: 50 * $size)
-		//	transform scale(0.7) translateX(-25%)
+		transform translateX(- $defaultSize)
