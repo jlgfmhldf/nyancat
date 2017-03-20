@@ -1,36 +1,5 @@
-$colors = {
-	'r': #ff130e,
-	'o': black,
-	'n': #f7ce9b,
-	'z': #ffa711,
-	'e': #ffa3ff,
-	'E': #ff4eaf,
-	'u': #ffff06,
-	't': transparent,
-	'g': #a8a8a8,
-	'l': #3fff0d,
-	'b': #13acff,
-	'w': #fff,
-	'v': #7939b5,
-}
-
-$defaultSize = 8px
-$mobileSize = 6px
-
-p($color, x = 0, y = 0, size = $defaultSize) //pixel
-	return unit(x * size, 'px') unit(y * size, 'px') 0 $color
-
-pixelize(matrix, size = $defaultSize)
-	res = null
-	for val, y in matrix
-		for color, x in val
-			color = $colors[color]
-			if(color != 'transparent')
-				pixel = p(color, x, y, size)
-				push(res, join(' ', pixel))
-
-	shift(res) // because res[0] = null :(
-	return unquote(join(',', res))
+@import 'mixins'
+@import 'variables'
 
 $nyancat1 = t t t t t t t t t t t r r r r r r r r r r t t t t t t t o o o o o o o o o o o o o o,
 						t r r r r r r r r r r r r r r r r r r r r r r r r r r o n n n n n n n n n n n n n n o,
@@ -104,6 +73,16 @@ $nyancat4 = t t t t t t t t t t t t t t t t t t t t t t t t t t t t t o o o o o 
 						t t t t t t t t t t t t t t t t t t t t t t t t t t o g g o o g g o t o g g o t o g g o,
 						t t t t t t t t t t t t t t t t t t t t t t t t t t o o o t t o o o t t o o o t t o o o
 
+$bell = t t t t t t E E t t t t,
+				t t t t t E E E t E t t,
+				t t t t E E E E t t E t,
+				t E E E E E E E t t E t,
+				t E E E E E E E t t t E,
+				t B B B E E E E t t E t,
+				t t t t B E E E t t E t,
+				t t t t t B E E t E t t,
+				t t t t t t B B t t t t,
+
 @keyframes animate {
 	0% {
 		box-shadow pixelize($nyancat1)
@@ -143,14 +122,12 @@ $nyancat4 = t t t t t t t t t t t t t t t t t t t t t t t t t t t t t o o o o o 
 		box-shadow pixelize($nyancat4, $mobileSize)
 	}
 }
-
-
+	
 body
 	background #114475
 
 .nyancat
-	width $defaultSize
-	height $defaultSize
+	size $defaultSize
 	animation animate .4s steps(1) infinite
 	
 	@media screen and (max-width: 50 * $defaultSize)
@@ -158,10 +135,16 @@ body
 		height $mobileSize
 		animation animateMobile .4s steps(1) infinite
 
+.bell
+	size $defaultSize
+	box-shadow pixelize($bell)
+		
 .main
-	width 100%
-	height 100vh
+	size 100% 100vh
 	display flex
+	
+	&__bell
+		margin auto 0
 	
 	&__image
 		flex-shrink 0
