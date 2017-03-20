@@ -104,49 +104,100 @@ $nyancat4 = t t t t t t t t t t t t t t t t t t t t t t t t t t t t t o o o o o 
 						t t t t t t t t t t t t t t t t t t t t t t t t t t o g g o o g g o t o g g o t o g g o,
 						t t t t t t t t t t t t t t t t t t t t t t t t t t o o o t t o o o t t o o o t t o o o
 
-@keyframes animate {
-	0% {
+$star1 = t t t t t w,
+				 t t w t t t t t w,
+				 t,
+				 t w t t t t t t t w,
+				 t,
+				 t t w t t t t t w,
+				 t t t t t w
+
+$star2 = t t t t t w,
+				 t,
+				 t,
+				 t w t t t t t t t w,
+				 t,
+				 t,
+				 t t t t t w
+
+$star3 = t,
+				 t,
+				 t,
+				 t t t t t w
+
+$star4 = t,
+				 t,
+				 t t t t t w,
+				 t t t t w t w,
+				 t t t t t w
+				
+$star5 = t,
+				 t t t t t w,
+				 t t t t t w,
+				 t t t w w t w w,
+				 t t t t t w,
+				 t t t t t w
+
+$star6 = t t t t t w,
+				 t t t t t w,
+				 t t t t t t,
+				 t t w w t w t w w,
+				 t t t t t t,
+				 t t t t t w,
+				 t t t t t w,
+
+@keyframes animate
+	0%
 		box-shadow pixelize($nyancat1)
 		transform translateY(5px)
-	}
 	
-	33% {
+	33%
 		box-shadow pixelize($nyancat2)
-	}
 	
-	66% {
+	66%
 		box-shadow pixelize($nyancat3)
 		transform translateY(0)
-	}
 	
-	99% {
+	99%
 		box-shadow pixelize($nyancat4)
-	}
-}
-
-@keyframes animateMobile {
-	0% {
+		
+@keyframes animateMobile
+	0%
 		box-shadow pixelize($nyancat1, $mobileSize)
 		transform translateY(5px)
-	}
 
-	33% {
+	33%
 		box-shadow pixelize($nyancat2, $mobileSize)
-	}
 
-	66% {
+	66%
 		box-shadow pixelize($nyancat3, $mobileSize)
 		transform translateY(0)
-	}
 
-	99% {
+	99%
 		box-shadow pixelize($nyancat4, $mobileSize)
-	}
-}
 
+@keyframes animateStar
+	5%
+		box-shadow pixelize($star1, 5px)
+		
+	20%
+		box-shadow pixelize($star2, 5px)
+		
+	40%
+		box-shadow pixelize($star3, 5px)
+		
+	60%
+		box-shadow pixelize($star4, 5px)
+		
+	80%
+		box-shadow pixelize($star5, 5px)
+		
+	90%
+		box-shadow pixelize($star6, 5px)
 
 body
 	background #114475
+	overflow hidden
 
 .nyancat
 	width $defaultSize
@@ -157,13 +208,21 @@ body
 		width $mobileSize
 		height $mobileSize
 		animation animateMobile .4s steps(1) infinite
+		
+.star
+	width 5px
+	height 5px
+	animation animateStar .4s steps(1) infinite
 
 .main
 	width 100%
 	height 100vh
 	display flex
 	
-	&__image
+	&__star
+		position absolute
+	
+	&__nyancat
 		flex-shrink 0
 		width 50 * $defaultSize
 		height 17 * $defaultSize
