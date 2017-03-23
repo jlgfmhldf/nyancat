@@ -7,7 +7,6 @@
     audioBtn.addEventListener('click', function () {
         audioBtnIcon.classList.toggle('bell_on')
 
-
         if (isPlayed) {
             isPlayed = false
             player.pause()
