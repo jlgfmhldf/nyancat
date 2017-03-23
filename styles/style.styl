@@ -73,15 +73,25 @@ $nyancat4 = t t t t t t t t t t t t t t t t t t t t t t t t t t t t t o o o o o 
 						t t t t t t t t t t t t t t t t t t t t t t t t t t o g g o o g g o t o g g o t o g g o,
 						t t t t t t t t t t t t t t t t t t t t t t t t t t o o o t t o o o t t o o o t t o o o
 
-$bell = t t t t t t E E t t t t,
-				t t t t t E E E t B t t,
-				t t t t E E E E t B t B,
-				t E E E E E E E t B t B,
-				t E E E E E E E t B t B,
-				t B B B E E E E t B t B,
-				t t t t B E E E t B t B,
-				t t t t t B E E t B t t,
-				t t t t t t B B t t t t,
+$bell = t t t t t t a a t t t t A t t,
+				t t t t t a a a t A t t t A t,
+				t t t t a a a a t t A t t t A,
+				t a a a a a a a t t A t t t A,
+				t a a a a a a a t t t A t t A,
+				t A A A a a a a t t A t t t A,
+				t t t t A a a a t t A t t t A,
+				t t t t t A a a t A t t t A t,
+				t t t t t t A A t t t t A t t,
+				
+$bell_off = t t t t t t a a t t t t t t,
+				 		t t t t t a a a t t t t t t,
+				 		t t t t a a a a t A t t t A,
+				 		t a a a a a a a t t A t A t,
+				 		t a a a a a a a t t t A t t,
+				 		t A A A a a a a t t A t A t,
+				 		t t t t A a a a t A t t t A,
+				 		t t t t t A a a t t t t t t,
+				 		t t t t t t A A t t t t t t,
 
 @keyframes animate {
 	0% {
@@ -124,7 +134,7 @@ $bell = t t t t t t E E t t t t,
 }
 	
 body
-	background #114475
+	background $blue
 
 .nyancat
 	size $defaultSize
@@ -136,18 +146,18 @@ body
 		animation animateMobile .4s steps(1) infinite
 
 .bell
-	size $defaultSize
-	box-shadow pixelize($bell)
+	size 5px
+	box-shadow pixelize($bell_off, 5px)
 		
 .main
 	size 100% 100vh
 	display flex
 	
 	&__bell
-		$bellWidth = 8 * $defaultSize
 		position absolute
-		bottom 100px
-		//left calc(50% - $bellWidth)
+		bottom 50px
+		left 10px
+		cursor pointer
 	
 	&__image
 		flex-shrink 0
