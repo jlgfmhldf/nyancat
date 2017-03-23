@@ -81,7 +81,7 @@ $bell = t t t t t t a a t t t t A t t,
 				t A A A a a a a t t A t t t A,
 				t t t t A a a a t t A t t t A,
 				t t t t t A a a t A t t t A t,
-				t t t t t t A A t t t t A t t,
+				t t t t t t A A t t t t A t t
 				
 $bell_off = t t t t t t a a t t t t t t,
 				 		t t t t t a a a t t t t t t,
@@ -91,7 +91,7 @@ $bell_off = t t t t t t a a t t t t t t,
 				 		t A A A a a a a t t A t A t,
 				 		t t t t A a a a t A t t t A,
 				 		t t t t t A a a t t t t t t,
-				 		t t t t t t A A t t t t t t,
+				 		t t t t t t A A t t t t t t
 
 @keyframes animate {
 	0% {
@@ -148,6 +148,9 @@ body
 .bell
 	size 5px
 	box-shadow pixelize($bell_off, 5px)
+	
+	&_on
+		box-shadow pixelize($bell, 5px)
 		
 .main
 	size 100% 100vh
@@ -155,8 +158,9 @@ body
 	
 	&__bell
 		position absolute
-		bottom 50px
+		bottom 10px
 		left 10px
+		size 70px 45px
 		cursor pointer
 	
 	&__image
