@@ -144,7 +144,10 @@ body
 	display flex
 	
 	&__bell
-		margin auto 0
+		$bellWidth = 8 * $defaultSize
+		position absolute
+		bottom 100px
+		//left calc(50% - $bellWidth)
 	
 	&__image
 		flex-shrink 0

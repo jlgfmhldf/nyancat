@@ -24,7 +24,9 @@ body {
   display: flex;
 }
 .main__bell {
-  margin: auto 0;
+  position: absolute;
+  bottom: 100px;
+  left: calc(50% - $bellWidth);
 }
 .main__image {
   flex-shrink: 0;
