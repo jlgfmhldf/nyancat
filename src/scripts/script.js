@@ -5,7 +5,7 @@
     let isPlayed = false
 
     audioBtn.addEventListener('click', function () {
-        audioBtnIcon.classList.toggle('bell_on')
+        audioBtnIcon.classList.toggle('play_on')
 
         if (isPlayed) {
             isPlayed = false
