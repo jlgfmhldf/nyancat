@@ -13,12 +13,12 @@ body {
     animation: animateMobile 0.4s steps(1) infinite;
   }
 }
-.bell {
+.play {
   width: 5px;
   height: 5px;
   box-shadow: 30px 0px 0 #1b6ab7,35px 0px 0 #1b6ab7,25px 5px 0 #1b6ab7,30px 5px 0 #1b6ab7,35px 5px 0 #1b6ab7,20px 10px 0 #1b6ab7,25px 10px 0 #1b6ab7,30px 10px 0 #1b6ab7,35px 10px 0 #1b6ab7,45px 10px 0 #165796,65px 10px 0 #165796,5px 15px 0 #1b6ab7,10px 15px 0 #1b6ab7,15px 15px 0 #1b6ab7,20px 15px 0 #1b6ab7,25px 15px 0 #1b6ab7,30px 15px 0 #1b6ab7,35px 15px 0 #1b6ab7,50px 15px 0 #165796,60px 15px 0 #165796,5px 20px 0 #1b6ab7,10px 20px 0 #1b6ab7,15px 20px 0 #1b6ab7,20px 20px 0 #1b6ab7,25px 20px 0 #1b6ab7,30px 20px 0 #1b6ab7,35px 20px 0 #1b6ab7,55px 20px 0 #165796,5px 25px 0 #165796,10px 25px 0 #165796,15px 25px 0 #165796,20px 25px 0 #1b6ab7,25px 25px 0 #1b6ab7,30px 25px 0 #1b6ab7,35px 25px 0 #1b6ab7,50px 25px 0 #165796,60px 25px 0 #165796,20px 30px 0 #165796,25px 30px 0 #1b6ab7,30px 30px 0 #1b6ab7,35px 30px 0 #1b6ab7,45px 30px 0 #165796,65px 30px 0 #165796,25px 35px 0 #165796,30px 35px 0 #1b6ab7,35px 35px 0 #1b6ab7,30px 40px 0 #165796,35px 40px 0 #165796;
 }
-.bell_on {
+.play_on {
   box-shadow: 30px 0px 0 #1b6ab7,35px 0px 0 #1b6ab7,60px 0px 0 #165796,25px 5px 0 #1b6ab7,30px 5px 0 #1b6ab7,35px 5px 0 #1b6ab7,45px 5px 0 #165796,65px 5px 0 #165796,20px 10px 0 #1b6ab7,25px 10px 0 #1b6ab7,30px 10px 0 #1b6ab7,35px 10px 0 #1b6ab7,50px 10px 0 #165796,70px 10px 0 #165796,5px 15px 0 #1b6ab7,10px 15px 0 #1b6ab7,15px 15px 0 #1b6ab7,20px 15px 0 #1b6ab7,25px 15px 0 #1b6ab7,30px 15px 0 #1b6ab7,35px 15px 0 #1b6ab7,50px 15px 0 #165796,70px 15px 0 #165796,5px 20px 0 #1b6ab7,10px 20px 0 #1b6ab7,15px 20px 0 #1b6ab7,20px 20px 0 #1b6ab7,25px 20px 0 #1b6ab7,30px 20px 0 #1b6ab7,35px 20px 0 #1b6ab7,55px 20px 0 #165796,70px 20px 0 #165796,5px 25px 0 #165796,10px 25px 0 #165796,15px 25px 0 #165796,20px 25px 0 #1b6ab7,25px 25px 0 #1b6ab7,30px 25px 0 #1b6ab7,35px 25px 0 #1b6ab7,50px 25px 0 #165796,70px 25px 0 #165796,20px 30px 0 #165796,25px 30px 0 #1b6ab7,30px 30px 0 #1b6ab7,35px 30px 0 #1b6ab7,50px 30px 0 #165796,70px 30px 0 #165796,25px 35px 0 #165796,30px 35px 0 #1b6ab7,35px 35px 0 #1b6ab7,45px 35px 0 #165796,65px 35px 0 #165796,30px 40px 0 #165796,35px 40px 0 #165796,60px 40px 0 #165796;
 }
 .main {
@@ -26,7 +26,7 @@ body {
   height: 100vh;
   display: flex;
 }
-.main__bell {
+.main__play {
   position: absolute;
   bottom: 10px;
   left: 10px;
@@ -34,7 +34,7 @@ body {
   height: 45px;
   cursor: pointer;
 }
-.main__image {
+.main__nyancat {
   flex-shrink: 0;
   width: 400px;
   height: 136px;
@@ -42,7 +42,7 @@ body {
   transform: translateX(-8px);
 }
 @media screen and (max-width: 400px) {
-  .main__image {
+  .main__nyancat {
     width: 300px;
     height: 102px;
     transform: translateX(-6px);

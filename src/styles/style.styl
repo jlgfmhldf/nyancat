@@ -73,7 +73,7 @@ $nyancat4 = t t t t t t t t t t t t t t t t t t t t t t t t t t t t t o o o o o 
 						t t t t t t t t t t t t t t t t t t t t t t t t t t o g g o o g g o t o g g o t o g g o,
 						t t t t t t t t t t t t t t t t t t t t t t t t t t o o o t t o o o t t o o o t t o o o
 
-$bell = t t t t t t a a t t t t A t t,
+$play = t t t t t t a a t t t t A t t,
 				t t t t t a a a t A t t t A t,
 				t t t t a a a a t t A t t t A,
 				t a a a a a a a t t A t t t A,
@@ -83,7 +83,7 @@ $bell = t t t t t t a a t t t t A t t,
 				t t t t t A a a t A t t t A t,
 				t t t t t t A A t t t t A t t
 				
-$bell_off = t t t t t t a a t t t t t t,
+$play_off = t t t t t t a a t t t t t t,
 				 		t t t t t a a a t t t t t t,
 				 		t t t t a a a a t A t t t A,
 				 		t a a a a a a a t t A t A t,
@@ -145,25 +145,25 @@ body
 		height $mobileSize
 		animation animateMobile .4s steps(1) infinite
 
-.bell
+.play
 	size 5px
-	box-shadow pixelize($bell_off, 5px)
+	box-shadow pixelize($play_off, 5px)
 	
 	&_on
-		box-shadow pixelize($bell, 5px)
+		box-shadow pixelize($play, 5px)
 		
 .main
 	size 100% 100vh
 	display flex
 	
-	&__bell
+	&__play
 		position absolute
 		bottom 10px
 		left 10px
 		size 70px 45px
 		cursor pointer
 	
-	&__image
+	&__nyancat
 		flex-shrink 0
 		width 50 * $defaultSize
 		height 17 * $defaultSize
