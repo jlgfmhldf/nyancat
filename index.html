@@ -2,18 +2,23 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Nyancat animation</title>
+	<title>Nyan Cat Animation</title>
 	<meta name= "viewport" content= "width=device-width, initial-scale=1.0" >
     <meta name="theme-color" content="#114475">
     <meta name="msapplication-navbutton-color" content="#114475">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
 	<div class="main">
-		<div class="main__image">
+		<div class="main__nyancat">
 			<div class="nyancat"></div>
 		</div>
+        <div class="main__play js-audio">
+            <div class="play js-audio-icon"></div>
+        </div>
+		<audio class="js-player" src="src/audio/nuan!.mp3" loop></audio>
 	</div>
+	<script src="src/scripts/script.js"></script>
 </body>
 </html>

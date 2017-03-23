@@ -1,0 +1,22 @@
+size($width, $height = $width)
+	width $width
+	height $height
+
+p($color, x = 0, y = 0, size = $defaultSize) //pixel
+	return unit(x * size, 'px') unit(y * size, 'px') 0 $color
+	
+pixelize(matrix, size = $defaultSize)
+	res = null
+	
+	for val, y in matrix
+		for color, x in val
+			color = $colors[color]
+			if color != 'transparent'
+				pixel = p(color, x, y, size)
+				push(res, join(' ', pixel))
+
+	shift(res) // because res[0] = null :(
+	return unquote(join(',', res))
+
+
+	
